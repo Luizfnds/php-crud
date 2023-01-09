@@ -16,3 +16,16 @@
     <input type="text", name="email">
     <input type="submit", value="Enviar">
 </form>
+
+<?php
+    $sql = $pdo->prepare("SELECT * FROM users");
+    $sql->execute();
+
+    $fetchUsers = $sql->fetchAll();
+
+    foreach($fetchUsers as $key => $value) {
+        echo $value;
+        echo $value["nameUser"]." | ".$value["emailUser"];
+        echo "<hr>";
+    }
+?>
